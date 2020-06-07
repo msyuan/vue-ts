@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
+
+//登陆相关的路由
 import Login from './login'
 
 Vue.use(VueRouter)
