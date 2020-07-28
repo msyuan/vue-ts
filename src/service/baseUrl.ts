@@ -1,11 +1,11 @@
 //接口基本地址
-let baseURL = 'http://47.110.13.17:3000'
+let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://47.110.13.17:3000'
+  baseURL = ''
 }else if (process.env.NODE_ENV === 'production') {
-  baseURL = 'http://47.110.13.17:3000'
+  baseURL = ''
 }else{
-  baseURL = 'http://47.110.13.17:3000'
+  baseURL = ''
 }
 
 export default baseURL

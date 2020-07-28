@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
@@ -7,6 +8,7 @@ import Login from './login'
 
 Vue.use(VueRouter)
 
+//@ts-ignore
 const routes: Array<RouteConfig> = [
   {
     path: '/',

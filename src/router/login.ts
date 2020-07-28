@@ -2,12 +2,12 @@
  * @Description: 登陆注册相关的路由
  * @Author: your name
  * @Date: 2020-06-07 21:01:13
- * @LastEditTime: 2020-06-07 21:02:20
+ * @LastEditTime: 2020-07-29 00:11:47
  * @LastEditors: Please set LastEditors
- * @FilePath: \vue4.0+TS-gitee\src\router\login.ts
+ * @FilePath: \vuets\src\router\login.ts
  */ 
 
-const Login = () => import ( /*webpackChunkName: "login" */ '@v/Login')
+const Login = () => import ( /*webpackChunkName: "login" */ '@/views/Login')
 
 
 export default [
