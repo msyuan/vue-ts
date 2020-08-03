@@ -100,7 +100,7 @@ service.interceptors.response.use((response) => {
  * @param { Object } params [请求时携带的参数]
  */
 export const POST = (url, params) =>{
-  return service.post(url, params).then(res => { res.data })
+  return service.post(url, params)
 }
 
 /**
@@ -109,5 +109,5 @@ export const POST = (url, params) =>{
  * @param { Object } params [请求时携带的参数]
  */
 export const GET = (url, params) => {
-  return service.get(url, { params }).then(res => { res.data })
+  return service.get(url, { params })
 }
