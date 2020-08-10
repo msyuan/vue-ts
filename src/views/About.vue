@@ -13,12 +13,38 @@
         <div class="del" @click="deleteItem(index)">删除</div>
       </li>
     </ul>
+    <div class="time-box">
+      <van-field
+        readonly
+        clickable
+        name="datetimePicker"
+        :value="value"
+        label="时间选择"
+        placeholder="点击选择时间"
+        @click="showPicker = true"
+      />
+      <van-popup v-model="showPicker" position="bottom">
+        <van-datetime-picker
+          v-model="currentDate"
+          type="datetime"
+          title="选择完整时间"
+          :min-date="minDate"
+          :max-date="maxDate"
+          @confirm="onConfirm"
+          @cancel="showPicker = false"
+        />
+      </van-popup>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      showPicker: false,
+      minDate: new Date(2020,1,1),
+      maxDate: new Date(2120,1,1),
+      currentDate: new Date(),
       // 数据
       list: [{
         id: 1,
@@ -44,6 +70,9 @@ export default {
     }
   },
   methods: {
+    onConfirm (val) {
+      console.log("1111", val)
+    },
     deleteItem(index){
       this.list.splice(index, 1)
       // splice方法是删除数组某条数据，或者向某个位置添加数据
@@ -78,6 +107,9 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.time-box{
+  margin-bottom: 100px;
+}
 *{
   margin:0;
   padding: 0;
