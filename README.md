@@ -38,4 +38,4 @@ yarn lint
 
 ### 效果图
 ```
-![avatar](./assets/images/p.gif)
+![avatar](./src/assets/images/p.gif)
