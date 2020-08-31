@@ -2,7 +2,7 @@
  * @Description:
  * @Author: your name
  * @Date: 2020-06-05 10:58:22
- * @LastEditTime: 2020-08-27 11:31:32
+ * @LastEditTime: 2020-08-23 11:26:40
  * @LastEditors: Please set LastEditors
  * @FilePath: \vuets\vue.config.js
  */
@@ -16,7 +16,7 @@ const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
 /* const productionGzipExtensions = ['js', 'css']
 const CompressionWebpackPlugin = require('compression-webpack-plugin') */
-const extensionsValue = ['.ts', '.tsx', '.js', '.json']
+const extensionsValue = ['.ts', '.tsx', '.js', '.vue', '.json']
 
 module.exports = {
   publicPath: isProd ? './' : '/',
@@ -25,6 +25,8 @@ module.exports = {
   lintOnSave: true, // 是否开启eslint保存检测
   productionSourceMap: false, // 是否在构建生产包时生成sourcdeMap
   chainWebpack: config => {
+    // 修复HMR
+    // config.resolve.symlinks(true)
     config.resolve.alias
       .set('@', resolve('src'))
       .set('@v', resolve('src/views'))
@@ -52,6 +54,9 @@ module.exports = {
  	// 如果你需要基于环境有条件地配置行为, 通过这个，你可以直接修改配置，会通过webpack-merge 合并到最终的配置中
   configureWebpack: config => {
     config.resolve.extensions = extensionsValue // 可不写的扩展名
+    // config.plugins.push(
+    // 	new webpack.HotModuleReplacementPlugin()
+    // )
   },
   devServer: {
     host: '0.0.0.0',
@@ -87,5 +92,13 @@ module.exports = {
     // 向 CSS 相关的 loader 传递选项(支持 css-loader postcss-loader sass-loader less-loader)
 		 // loaderOptions: { css: {}, less: {} }
 
+  },
+
+  // 可以用来传递任何第三方插件选项
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: undefined,
+      patterns: []
+    }
   }
 };

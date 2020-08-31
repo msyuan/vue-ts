@@ -35,3 +35,7 @@ yarn test:unit
 ### Lints and fixes files
 ```
 yarn lint
+
+### 效果图
+
+![avatar](./assets/images/p.gif)

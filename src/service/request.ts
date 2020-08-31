@@ -6,8 +6,7 @@ import axios from 'axios'
 import { getToken, getUserId, setToken, setUserId } from '../utils/util'
 import baseURL from './baseUrl'
 
-
-//错误信息
+// 错误信息
 const errorStatus = (status: number) => {
   let message = ''
   switch (status) {
@@ -29,29 +28,28 @@ const errorStatus = (status: number) => {
   return `${message}，请检查网络或联系管理员！`
 }
 
-//创建axios实例
+// 创建axios实例
 export const service = axios.create({
-  timeout: 10000,  //请求超时
-  baseURL: baseURL //api的基本地址
+  timeout: 10000, // 请求超时
+  baseURL: baseURL // api的基本地址
 })
 
-
-//请求拦截器
+// 请求拦截器
 service.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
   // 添加全局的loading...
-  var userId = getUserId();
-  var token = getToken();
+  const userId = getUserId();
+  const token = getToken();
   // 通过登录或者注册接口成功后，会返回一个token数据，以后每个接口header都加token，用来判断是否登录
   if (token) {
-    config.headers['authToken'] = token;
+    config.headers.authToken = token;
   }
   if (userId) {
-    config.headers['userId'] = userId;
+    config.headers.userId = userId;
   }
-  //通过qs将传给后台的数据格式设置为form格式
+  // 通过qs将传给后台的数据格式设置为form格式
   if (config.method === 'post') {
-    //config.data = qs.stringify(config.data);
+    // config.data = qs.stringify(config.data);
     config.headers.post['Content-Type'] = 'application/json;charset=utf-8'
   }
   return config
@@ -60,7 +58,7 @@ service.interceptors.request.use((config) => {
   return Promise.reject(error)
 })
 
-//响应拦截器
+// 响应拦截器
 service.interceptors.response.use((response) => {
   // 对响应数据做点什么
   const { data, status } = response
@@ -75,7 +73,7 @@ service.interceptors.response.use((response) => {
     return data
   } else {
     // 处理http错误，抛到业务代码
-    let msg = errorStatus(status)
+    const msg = errorStatus(status)
     if (typeof response.data === 'string') {
       response.data = { msg }
     } else {
@@ -91,15 +89,14 @@ service.interceptors.response.use((response) => {
   return Promise.resolve(error)
 })
 
-
-//当然也可以封装好get ,post请求
+// 当然也可以封装好get ,post请求
 
 /**
  * post方法，对应post请求
  * @param { String } url [请求的url地址]
  * @param { Object } params [请求时携带的参数]
  */
-export const POST = (url, params) =>{
+export const POST = (url, params) => {
   return service.post(url, params)
 }
 

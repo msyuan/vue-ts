@@ -1,0 +1,90 @@
+/*通用样式*/
+/**文字和背景主色调**/
+@red-color: #fd536c;
+@blue-color: #00bbee;
+@bg-red: #FD3553;
+@border-color: #E6E6E6;
+@border-gray:#e5e5e5;
+.ft-red{
+   color: #fd536c!important
+}
+/*tabbar导航样式*/
+.tabbar {
+  width: 100%;
+  height: 1.04rem;
+  background: #fff;
+  border-top: .01rem solid #dcdcdc;
+  display: -webkit-box;
+  display: box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  .item {
+    width: 33.33%;
+    display: block;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    text-align: center;
+    font-size: .24rem;
+    color: #666;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    span {
+      display: block;
+      line-height: 1.1;
+    }
+    span:nth-child(1) {
+      margin: .12rem auto .1rem;
+      width: 0.4rem;
+      height: 0.4rem;
+      background-size: 0.4rem;
+    }
+    .home {
+      background: url(../assets/images/icon/home.png);
+    }
+    .col {
+      background: url(../assets/images/icon/col.png);
+    }
+    .car {
+      background: url(../assets/images/icon/car.png);
+    }
+    .center {
+      background: url(../assets/images/icon/center.png);
+    }
+    .cur span:nth-child(1) {
+      background-size: 0.4rem;
+    }
+    .cur .home {
+      background: url(../assets/images/icon/home-active.png);
+    }
+    .cur .col {
+      background: url(../assets/images/icon/col-active.png);
+    }
+    .cur .car {
+      background: url(../assets/images/icon/car-active.png);
+    }
+    .cur .center {
+      background: url(../assets/images/icon/center-active.png);
+    }
+    .cur span {
+      color: #ff3b30;
+    }
+  }
+  .cart-count{
+    width: .36rem;
+    height: .36rem;
+    line-height: .36rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.08rem;
+    right: 0.4rem;
+    z-index: 10002;
+    font-size: .20rem;
+    text-align: center;
+    color: #fff;
+    background: @bg-red
+  }
+}

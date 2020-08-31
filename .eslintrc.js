@@ -12,7 +12,8 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
-	'semi': 0,     //不检查每一行以分号结尾，
+    semi: 0, // 不检查每一行以分号结尾，
+    'space-before-function-paren': 0, // 函数括号前必须加空格
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   },
