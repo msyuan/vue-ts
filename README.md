@@ -37,5 +37,5 @@ yarn test:unit
 yarn lint
 
 ### 效果图
-
+```
 ![avatar](./assets/images/p.gif)
